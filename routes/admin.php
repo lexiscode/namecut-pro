@@ -4,23 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\PasswordResetController;
-
-
-
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
-
-    Route::get('login', [AdminController::class, 'index'])->name('login.index');
-    Route::post('login', [AdminController::class, 'login'])->name('login');
-
-    // Forgot/Reset password
-    Route::get('forgot-password', [PasswordResetController::class, 'create'])->name('forgot-password');
-    Route::post('forgot-password', [PasswordResetController::class, 'sendResetLink'])->name('forgot-password.send');
-
-    Route::get('reset-password/{token}', [PasswordResetController::class, 'resetPassword'])->name('reset-password');
-    Route::post('reset-password', [PasswordResetController::class, 'handleResetPassword'])->name('reset-password.send');
-});
-
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], function(){
