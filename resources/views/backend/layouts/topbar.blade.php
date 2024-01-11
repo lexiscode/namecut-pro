@@ -46,11 +46,14 @@
                                         <small class="text-white">nwokoriealex20@gmail.com</small>
                                     </div>
 
-                                    {% if app.user %}
-                                        <a href="" class="text-white font-20 tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout">
-                                        <i class="zmdi zmdi-power"></i>
+                                    <form id="logout-form" method="POST" action="{{ route('admin.logout') }}">
+                                        @csrf
+                                        <a href="#" onclick="document.getElementById('logout-form').submit()" class="text-white font-20 tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout">
+                                            <i class="zmdi zmdi-power"></i>
                                         </a>
-                                    {% endif %}
+                                    </form>
+
+
 
                                 </div>
                             </div>

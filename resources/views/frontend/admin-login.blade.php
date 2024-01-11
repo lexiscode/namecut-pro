@@ -6,12 +6,19 @@
 
 @section('main-content')
 
- <form>
+ <form method="POST" action="{{ route('admin.login') }}">
+    @csrf
         <!-- Specially below is for PC and Tablet devices -->
         <section class="slider_section_client_form long_section">
         <div class="containerr">
             <h1>Admin Login</h1>
             <div class="form">
+              <!--Displays "please login first" error on unauthorize admin user-->
+                @if (session()->has('error'))
+                <p class='text-sm text-red-600 space-y-1' style="text-align:center">
+                    {{ session()->get('error') }}
+                </p>
+                @endif
             <div class="form-group">
                 <input type="text" id="admin-email" name="email" required />
                 <label for="admin-email">Enter your email address</label>
