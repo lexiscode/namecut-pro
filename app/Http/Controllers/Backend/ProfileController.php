@@ -51,6 +51,7 @@ class ProfileController extends Controller
         $admin->save();
 
         toast('Updated Successfully!','success')->width('300');
+        
         return redirect()->back();
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginAdminRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,16 @@ class LoginAdminRequest extends FormRequest
         return [
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string', 'min:6'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'The :attribute field is required.',
+            'string' => 'The :attribute must be a string.',
+            'min' => 'The :attribute must be at least :min.',
+            'email' => 'Invalid email format.',
         ];
     }
 }

@@ -7,9 +7,15 @@
       <div id="customCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="container ">
+            <div class="container">
+                @if (session()->has('success'))
+                    <p class='text-sm text-green-600 space-y-1' style="text-align:center">
+                        <b>{{ session()->get('success') }}</b>
+                    </p>
+                @endif
               <div class="row">
                 <div class="col-md-5">
+
                   <div class="detail-box">
                     <h1>
                       Publish Your <br>

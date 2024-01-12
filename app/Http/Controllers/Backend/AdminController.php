@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginAdminRequest;
@@ -15,12 +16,17 @@ class AdminController extends Controller
         return view('frontend.admin-login');
     }
 
-    public function login(LoginAdminRequest $request)
+    public function login(Request $request)
     {
         if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
-            return redirect()->route('admin.dashboard.index')->with('success', 'Login is successful');
+
+            toast('Login Successful!','success')->width('300');
+
+            return redirect()->route('admin.dashboard.index');
+
         }else{
-            return back()->with('error', 'Invalid credentials');
+
+            return back()->with('error', 'Invalid credentials! Try again.');
         }
     }
 
@@ -33,7 +39,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('success', 'Logout Successful!');
     }
 
 }

@@ -17,48 +17,69 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
+                @auth
                 <li class="nav-item">
                     <a class="nav-link" href="#">Get-Receipt</a>
                 </li>
+                @endauth
                 </ul>
             </div>
             <div class="quote_btn-container">
 
-                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>Login</span><i class="fa fa-user" aria-hidden="true"></i></a>
+                @auth
+                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="#" onclick="document.getElementById('logout-form').submit()"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal"><span>Logout</span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </a>
+                </form>
+                @endauth
+
+                @guest
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <span>Login</span><i class="fa fa-user" aria-hidden="true"></i>
+                </a>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
 
-                    <form action="" method="POST" autocomplete="off">
-                    <div class="modal-content" style="background-color: #f89646">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: white">Login Panel</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                        <p class="w-50 m-auto">
-                            <label for="username" style="color: white">Username:</label>
-                            <input class="form-control" type="text" name="username" id="username" placeholder="Enter Your Username" required>
-                            <br>
-                            <label for="password" style="color: white">Password:</label>
-                            <input class="form-control" type="password" name="password" id="password" placeholder="Enter Your Password" required>
-                            <br>
-                            <a style="text-transform: lowercase;" href="/forgot-password"><i>Forgotten password?</i></a>
-                        </p>
+                    <form method="POST" action="{{ route('login') }}" autocomplete="off">
+                        @csrf
+                        <div class="modal-content" style="background-color: #f89646">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: white">Login Panel</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div>
+                                    @if (session()->has('error'))
+                                    <p class='text-sm text-red-600 space-y-1' style="text-align:center">
+                                        {{ session()->get('error') }}
+                                    </p>
+                                    @endif
+                                <p class="w-50 m-auto">
+                                    <label for="email" style="color: white">Email:</label>
+                                    <input class="form-control" type="text" name="email" id="email" placeholder="Enter Your Email" required>
+                                    <br>
+                                    <label for="password" style="color: white">Password:</label>
+                                    <input class="form-control" type="password" name="password" id="password" placeholder="Enter Your Password" required>
+                                    <br>
+                                    <a style="text-transform: lowercase;" href="/forgot-password"><i>Forgotten password?</i></a>
+                                </p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-info" name="sign-in">Login</button>
+                            </div>
                         </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-info" name="sign-in">Login</button>
-                    </div>
-                    </div>
                     </form>
-
                 </div>
                 </div>
+                @endguest
 
             </div>
             </div>
