@@ -42,8 +42,8 @@
                             <div class="bg-gradient px-4 py-3">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="mr-1">
-                                        <h4 class="text-white mb-0">Alexander Nwokorie</h4>
-                                        <small class="text-white">nwokoriealex20@gmail.com</small>
+                                        <h4 class="text-white mb-0">Hi, {{ auth()->guard('admin')->user()->name }}</h4>
+                                        <small class="text-white">{{ auth()->guard('admin')->user()->email }}</small>
                                     </div>
 
                                     <form id="logout-form" method="POST" action="{{ route('admin.logout') }}">
@@ -53,12 +53,10 @@
                                         </a>
                                     </form>
 
-
-
                                 </div>
                             </div>
                             <div class="p-4">
-                                <a class="dropdown-item d-flex nav-link" href="">
+                                <a class="dropdown-item d-flex nav-link" href="{{ route('admin.profile.index') }}">
                                     <i class="fa fa-user pr-2 text-success"></i> Profile
                                 </a>
                                 <a class="dropdown-item d-flex nav-link" href="/admin/mail">

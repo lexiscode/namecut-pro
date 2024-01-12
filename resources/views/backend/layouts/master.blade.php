@@ -65,6 +65,11 @@
 
     <!-- custom app -->
     <script src="{{ asset("backend/assets/js/app.js") }}"></script>
+
+    <!-- SweetAlert by realrashid-->
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
+    @include('sweetalert::alert')
+    
 </body>
 
 </html>
