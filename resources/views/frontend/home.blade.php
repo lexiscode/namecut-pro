@@ -26,9 +26,16 @@
                       Distance and location <i>is not a barrier</i> to have this done efficiently and in no time.
                     </p>
                     <div class="btn-box">
-                      <a href="/client-form" class="btn1">
-                        <b>UPLOAD DATA</b>
-                      </a>
+                        @guest
+                        <a href="/register" class="btn1">
+                            <b>UPLOAD DATA</b>
+                        </a>
+                        @endguest
+                        @auth
+                        <a href="/client-form" class="btn1">
+                            <b>UPLOAD DATA</b>
+                        </a>
+                        @endauth
                       <a href="/verification" class="btn2">
                         <b>VERIFY DATA</b>
                       </a>
@@ -57,9 +64,16 @@
                       Distance and location <i>is not a barrier</i> to have this done efficiently and in no time.
                     </p>
                     <div class="btn-box">
-                      <a href="/client-form" class="btn1">
-                        <b>UPLOAD DATA</b>
-                      </a>
+                        @guest
+                        <a href="/register" class="btn1">
+                            <b>UPLOAD DATA</b>
+                        </a>
+                        @endguest
+                        @auth
+                        <a href="/client-form" class="btn1">
+                            <b>UPLOAD DATA</b>
+                        </a>
+                        @endauth
                       <a href="/verification" class="btn2">
                         <b>VERIFY DATA</b>
                       </a>

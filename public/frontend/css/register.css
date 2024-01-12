@@ -3,7 +3,7 @@
 .containerr{
     margin: 0 auto;
     width: 430px;
-    height: 480px; /*580*/
+    height: 550px; /*580*/
     position: relative;
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
     border-radius: 6px;
@@ -118,4 +118,3 @@
   background-color: transparent;
   color: #f89646;
 }
-
