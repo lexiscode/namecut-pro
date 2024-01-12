@@ -19,10 +19,51 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+    width: 20px; /* Adjust the width and height as needed */
+    height: 20px;
+    background-color: #f89646;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px; /* Optional: Add border-radius for rounded corners */
+}
+
+.custom-close2 span {
+    color: white; /* Set the color of the 'x' to white */
+    font-size: 16px; /* Adjust the font size as needed */
 }
 
 /* Button container style */
 .custom-btn-container2 {
     text-align: right;
     margin-top: 20px;
+}
+
+
+.custom-btn-container2 label {
+    display: inline-block;
+    padding: 0.13rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: #f8f9fa; /* Adjust the background color */
+    border: 1px solid #ced4da;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.custom-btn-container2 label.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+}
+
+.custom-btn-container2 label.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: #fff;
 }

@@ -15,9 +15,11 @@ use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 
 
 Route::get('/', [HomeController::class, '__invoke'])->name('home');
-Route::get('client-form', [ClientFormController::class, 'index'])->name('client-form');
 Route::get('verification', [VerificationController::class, 'index'])->name('verification');
 
+
+Route::get('client-form', [ClientFormController::class, 'index'])->name('client-form.index');
+Route::post('client-form', [ClientFormController::class, 'store'])->name('client-form');
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact', [ContactController::class, 'store'])->name('contact');

@@ -8,7 +8,7 @@
     background-color: white;
     padding: 20px;
     width: 300px; /* Adjust the width as needed */
-    height: 200px; /* Adjust the height as needed */
+    height: 190px; /* Adjust the height as needed */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -19,10 +19,51 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+    width: 20px; /* Adjust the width and height as needed */
+    height: 20px;
+    background-color: #f89646;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px; /* Optional: Add border-radius for rounded corners */
+}
+
+.custom-close span {
+    color: white; /* Set the color of the 'x' to white */
+    font-size: 16px; /* Adjust the font size as needed */
 }
 
 /* Button container style */
 .custom-btn-container {
     text-align: right;
     margin-top: 20px;
+}
+
+
+.custom-btn-container label {
+    display: inline-block;
+    padding: 0.13rem 0.75rem; /* Adjust the height and width as needed */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: #f8f9fa; /* Adjust the background color */
+    border: 1px solid #ced4da;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.custom-btn-container label.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+}
+
+.custom-btn-container label.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: #fff;
 }

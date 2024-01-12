@@ -2,6 +2,8 @@
 
 @section('main-content')
 
+<form method="POST" action="{{ route('client-form') }}" enctype="multipart/form-data">
+    @csrf
     <!-- Specially below is for PC and Tablet devices -->
     <section class="slider_section_client_form long_section">
         <input type="checkbox" id="one" />
@@ -25,11 +27,11 @@
               <div class="form">
                 <h2>Basic Information</h2>
                 <div class="form-group">
-                  <input type="text" required />
+                  <input type="text" name="fullname" required />
                   <label for="">Full Name</label>
                 </div>
                 <div class="form-group">
-                  <input type="number" required />
+                  <input type="number" name="phone_no" required />
                   <label for="">Phone Number</label>
                 </div>
                 <div class="btn-groupp">
@@ -42,25 +44,24 @@
               <div class="form">
                 <h2>Affidavit & Certificate</h2>
                 <div class="form-group">
-                    <input type="file" required />
+                    <input type="file" name="affidavit" required />
                 </div>
                 <div class="form-group">
-                  <input type="file" required />
+                  <input type="file" name="certificate" required />
                 </div>
                 <div class="btn-groupp">
                   <label for="one" class="btn">Previous</label>
-                  <label class="btn" onclick="openCustomModal()">Submit</label>
+                  <label onclick="openCustomModal()" class="btn" >Submit</label>
                 </div>
                 <!-- Modal -->
                 <div id="customModal" class="custom-modal">
                     <span class="custom-close" onclick="closeCustomModal()">&times;</span>
-                    <p>Before you click confirm, kindly ensure you filled in the correct data
-                    and keep your login details safe because you will need it to access your
-                    published name. Thank you!
+                    <p>Before clicking the confirm button, kindly ensure you have filled and uploaded
+                        the correct data in the form. Thank you!
                     </p>
                     <div class="custom-btn-container">
-                    <button onclick="closeCustomModal()" class="btn-secondary">Close</button>
-                    <button onclick="confirmCustomAction()" class="btn-warning" type="submit">Confirm</button>
+                        <label onclick="closeCustomModal()" class="btn-secondary">Close</label>
+                        <button class="btn-warning" onclick="confirmCustomAction()" type="submit">Confirm</button>
                     </div>
                 </div>
               </div>
@@ -70,7 +71,8 @@
         </div>
 
     </section>
-    <br>
+</form>
+<br>
 
     <!-- Specially below is for mobile devices -->
     <section class="section_demarcate long_section">
