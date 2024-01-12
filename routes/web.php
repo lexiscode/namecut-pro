@@ -15,11 +15,14 @@ use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 
 Route::get('/', [HomeController::class, '__invoke'])->name('home');
 Route::get('client-form', [ClientFormController::class, 'index'])->name('client-form');
-Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::get('verification', [VerificationController::class, 'index'])->name('verification');
 
 
-// WEBPAGE AUTHENTICATION ROUTES
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('contact', [ContactController::class, 'store'])->name('contact');
+
+
+// WEBPAGE AUTHENTICATION ROUTES for users
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -30,9 +33,7 @@ Route::get('reset-password/{token}', [PasswordResetController::class, 'resetPass
 Route::post('reset-password', [PasswordResetController::class, 'handleResetPassword'])->name('reset-password.send');
 
 
-
-
-
+// These are routes that has some ties with the admin but are in the frontend page
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
     Route::get('login', [AdminController::class, 'index'])->name('login.index');
