@@ -24,11 +24,7 @@
               <div>3</div>
               <span>Personal</span>
             </div>
-            <div class="line line3"></div>
-            <div class="step step4">
-              <div>4</div>
-              <span>Login</span>
-            </div>
+
           </div>
 
           <div class="panel">
@@ -53,8 +49,7 @@
               <div class="form">
                 <h2>Contact Information</h2>
                 <div class="form-group">
-                  <input type="text" required />
-                  <label for="">Email Address</label>
+                  <input type="text" required value="{{ auth()->user()->email }}" disabled />
                 </div>
                 <div class="form-group">
                   <input type="number" required />
@@ -82,29 +77,9 @@
                 </div>
                 <div class="btn-groupp">
                   <label for="two" class="btn">Previous</label>
-                  <label for="three" class="btn">Next</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="page4">
-
-              <div class="form">
-                <h2>Login Details</h2>
-                <div class="form-group">
-                  <input type="text" required />
-                  <label for="">Username</label>
-                </div>
-                <div class="form-group">
-                  <input type="password" required />
-                  <label for="">Password</label>
-                </div>
-                <div class="btn-groupp">
-                  <label for="three" class="btn">Previous</label>
                   <label onclick="openCustomModal()" class="btn">Submit</label>
                 </div>
               </div>
-
               <!-- Modal -->
               <div id="customModal" class="custom-modal">
                 <span class="custom-close" onclick="closeCustomModal()">&times;</span>
@@ -117,8 +92,8 @@
                   <button onclick="confirmCustomAction()" class="btn-warning" type="submit">Confirm</button>
                 </div>
               </div>
-
             </div>
+
           </div>
         </div>
 
@@ -138,7 +113,7 @@
 
         <hr>
         <div class="mb-3">
-          <input type="email" class="form-control" placeholder="Enter your email">
+          <input type="email" class="form-control" value="{{ auth()->user()->email }}" disabled placeholder="Enter your email">
         </div>
         <div class="mb-3">
           <input type="number" class="form-control" placeholder="Enter your phone number">
@@ -151,13 +126,6 @@
         <div class="mb-3">
           <label for="formFile" class="form-label">Upload Certificate</label>
           <input class="form-control" type="file" id="formFile">
-        </div>
-        <hr>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Enter a username">
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Enter your password">
         </div>
         <hr>
         <div style="text-align: center">

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
 .containerr{
     margin: 0 auto;
     margin-top: 50px;
@@ -103,9 +102,6 @@
     left: 50%;
 }
 
-.page4{
-    left: 75%;
-}
 
 .form{
     position: absolute;
@@ -213,31 +209,24 @@
     left: -860px;
 }
 
-#three:checked ~ .containerr .panel{
-    left: -1290px;
-}
-
-#one,#two,#three{
+#one,#two{
     display: none;
 }
 
 #one:checked ~ .containerr .indicator .line1,
-#two:checked ~ .containerr .indicator .line2,
-#three:checked ~ .containerr .indicator .line3{
+#two:checked ~ .containerr .indicator .line2{
     border-color: #f89646;
 }
 
 #one:checked ~ .containerr .indicator .step2 div,
-#two:checked ~ .containerr .indicator .step3 div,
-#three:checked ~ .containerr .indicator .step4 div{
+#two:checked ~ .containerr .indicator .step3 div{
     border-color: #f89646;
     background: #f89646;
     color: #FFF;
 }
 
 #one:checked ~ .containerr .indicator .step2 span,
-#two:checked ~ .containerr .indicator .step3 span,
-#three:checked ~ .containerr .indicator .step4 span{
+#two:checked ~ .containerr .indicator .step3 span{
     color: #f89646;
 }
 
