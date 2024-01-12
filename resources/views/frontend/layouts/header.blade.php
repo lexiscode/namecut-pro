@@ -67,9 +67,13 @@
                                     <label for="password" style="color: white">Password:</label>
                                     <input class="form-control" type="password" name="password" id="password" placeholder="Enter Your Password" required>
                                     <br>
-                                    <a style="text-transform: lowercase;" href="/forgot-password"><i>Forgotten password?</i></a>
                                 </p>
                                 </div>
+                                <div style="margin: 0 auto; text-align: center;">
+                                    <a style="text-transform: lowercase; color: white;" href="/register" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"><i>Create an account?</i></a>
+                                    <a style="text-transform: lowercase; color: white;" href="/forgot-password" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"><i>Forgot password?</i></a>
+                                </div>
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>

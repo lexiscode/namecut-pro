@@ -5,8 +5,6 @@
     <!-- Specially below is for PC and Tablet devices -->
     <section class="slider_section_client_form long_section">
         <input type="checkbox" id="one" />
-        <input type="checkbox" id="two" />
-        <input type="checkbox" id="three" />
         <div class="containerr">
           <h1>Upload Data</h1>
           <div class="indicator">
@@ -17,12 +15,7 @@
             <div class="line line1"></div>
             <div class="step step2">
               <div>2</div>
-              <span>Contact</span>
-            </div>
-            <div class="line line2"></div>
-            <div class="step step3">
-              <div>3</div>
-              <span>Personal</span>
+              <span>Docs</span>
             </div>
 
           </div>
@@ -33,11 +26,11 @@
                 <h2>Basic Information</h2>
                 <div class="form-group">
                   <input type="text" required />
-                  <label for="">First Name</label>
+                  <label for="">Full Name</label>
                 </div>
                 <div class="form-group">
-                  <input type="text" required />
-                  <label for="">Surname</label>
+                  <input type="number" required />
+                  <label for="">Phone Number</label>
                 </div>
                 <div class="btn-groupp">
                   <label for="one" class="btn btn-f">Next</label>
@@ -47,49 +40,28 @@
 
             <div class="page2">
               <div class="form">
-                <h2>Contact Information</h2>
+                <h2>Affidavit & Certificate</h2>
                 <div class="form-group">
-                  <input type="text" required value="{{ auth()->user()->email }}" disabled />
+                    <input type="file" required />
                 </div>
                 <div class="form-group">
-                  <input type="number" required />
-                  <label for="">Phone Number</label>
+                  <input type="file" required />
                 </div>
                 <div class="btn-groupp">
                   <label for="one" class="btn">Previous</label>
-                  <label for="two" class="btn">Next</label>
+                  <label class="btn" onclick="openCustomModal()">Submit</label>
                 </div>
-              </div>
-            </div>
-
-            <div class="page3">
-              <div class="form">
-                <h2>Affidavit & Certificate</h2>
-                <div class="form-group">
-
-                    <input type="file" required />
-
-                </div>
-                <div class="form-group">
-
-                    <input type="file" required />
-
-                </div>
-                <div class="btn-groupp">
-                  <label for="two" class="btn">Previous</label>
-                  <label onclick="openCustomModal()" class="btn">Submit</label>
-                </div>
-              </div>
-              <!-- Modal -->
-              <div id="customModal" class="custom-modal">
-                <span class="custom-close" onclick="closeCustomModal()">&times;</span>
-                <p>Before you click confirm, kindly ensure you filled in the correct data
-                  and keep your login details safe because you will need it to access your
-                  published name. Thank you!
-                </p>
-                <div class="custom-btn-container">
-                  <button onclick="closeCustomModal()" class="btn-secondary">Close</button>
-                  <button onclick="confirmCustomAction()" class="btn-warning" type="submit">Confirm</button>
+                <!-- Modal -->
+                <div id="customModal" class="custom-modal">
+                    <span class="custom-close" onclick="closeCustomModal()">&times;</span>
+                    <p>Before you click confirm, kindly ensure you filled in the correct data
+                    and keep your login details safe because you will need it to access your
+                    published name. Thank you!
+                    </p>
+                    <div class="custom-btn-container">
+                    <button onclick="closeCustomModal()" class="btn-secondary">Close</button>
+                    <button onclick="confirmCustomAction()" class="btn-warning" type="submit">Confirm</button>
+                    </div>
                 </div>
               </div>
             </div>

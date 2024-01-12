@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('client_forms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('firstname');
-            $table->string('surname');
+            $table->string('fullname');
             $table->string('phone_no');
             $table->string('affidavit');
             $table->string('certificate');

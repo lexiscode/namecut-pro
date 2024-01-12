@@ -84,7 +84,7 @@
     transition: all 0.4s ease;
 }
 
-.page1,.page2,.page3,.page4{
+.page1,.page2{
     position: absolute;
     height: 100%;
     width: 430px;
@@ -96,10 +96,6 @@
 
 .page2{
     left: 25%;
-}
-
-.page3{
-    left: 50%;
 }
 
 
@@ -205,28 +201,23 @@
     left: -430px;
 }
 
-#two:checked ~ .containerr .panel{
-    left: -860px;
-}
 
-#one,#two{
+
+#one{
     display: none;
 }
 
-#one:checked ~ .containerr .indicator .line1,
-#two:checked ~ .containerr .indicator .line2{
+#one:checked ~ .containerr .indicator .line1{
     border-color: #f89646;
 }
 
-#one:checked ~ .containerr .indicator .step2 div,
-#two:checked ~ .containerr .indicator .step3 div{
+#one:checked ~ .containerr .indicator .step2 div{
     border-color: #f89646;
     background: #f89646;
     color: #FFF;
 }
 
-#one:checked ~ .containerr .indicator .step2 span,
-#two:checked ~ .containerr .indicator .step3 span{
+#one:checked ~ .containerr .indicator .step2 span{
     color: #f89646;
 }
 
