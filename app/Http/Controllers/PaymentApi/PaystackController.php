@@ -5,6 +5,7 @@ namespace App\Http\Controllers\PaymentApi;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PaystackController extends Controller
 {
@@ -37,12 +38,13 @@ class PaystackController extends Controller
         // dd($response);
 
         if($response->data->status =='success'){
-
             $obj = new Payment;
             $obj->payment_id = $reference;
             $obj->amount = $response->data->amount / 100;
             $obj->payment_method = $response->data->channel;
             $obj->payment_status = 'success';
+            // Associate the form data with the currently authenticated user
+            $obj->user_id = Auth::id();
             $obj->save();
 
             return redirect()->route('success');
