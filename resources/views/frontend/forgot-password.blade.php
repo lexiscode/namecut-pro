@@ -1,4 +1,3 @@
-
 @extends('frontend.layouts.master')
 
 
@@ -69,7 +68,7 @@
             <input type="text" name="email" class="form-control" placeholder="Enter your email">
             </div>
             <div style="text-align: center">
-            <button type="submit" class="btn btn-warning">Submit</button>
+            <button type="submit" class="btn btn-warning">Send Reset Link</button>
             </div>
         </form>
       </div>

@@ -38,7 +38,7 @@
                         @endguest
                         @auth
                             @if($clientForm)
-                                <a href="#" class="btn1">
+                                <a href="/make-payment" class="btn1">
                                     <b>PAY NOW!</b>
                                 </a>
                             @else
@@ -82,7 +82,7 @@
                         @endguest
                         @auth
                             @if($clientForm)
-                                <a href="#" class="btn1">
+                                <a href="/make-payment" class="btn1">
                                     <b>PAY NOW!</b>
                                 </a>
                             @else

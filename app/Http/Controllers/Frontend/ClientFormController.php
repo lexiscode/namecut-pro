@@ -69,6 +69,6 @@ class ClientFormController extends Controller
         // Submit a new client-form using the validated data
         ClientForm::create($validatedData);
 
-        return redirect()->route('home')->with('success', 'Your form has been submitted!');
+        return redirect()->route('make-payment')->with('success', 'Form submitted! Pay now.');
     }
 }

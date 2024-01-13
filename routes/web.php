@@ -7,14 +7,14 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\RegisterController;
 use App\Http\Controllers\Frontend\Auth\LoginController;
 use App\Http\Controllers\Frontend\ClientFormController;
+use App\Http\Controllers\Frontend\MakePaymentController;
 use App\Http\Controllers\Frontend\VerificationController;
-use App\Http\Controllers\Frontend\ChangePasswordController;
-use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Backend\AdminPasswordResetController;
 use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 
 
 Route::get('/', [HomeController::class, '__invoke'])->name('home');
+
 Route::get('verification', [VerificationController::class, 'index'])->name('verification');
 
 
@@ -23,6 +23,8 @@ Route::post('client-form', [ClientFormController::class, 'store'])->name('client
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact', [ContactController::class, 'store'])->name('contact');
+
+Route::get('make-payment', [MakePaymentController::class, 'index'])->name('make-payment');
 
 
 // WEBPAGE AUTHENTICATION ROUTES for users
@@ -53,3 +55,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::post('reset-password', [AdminPasswordResetController::class, 'handleResetPassword'])->name('reset-password.send');
 
 });
+
+
+// Payment API Gateway
