@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\RegisterController;
 use App\Http\Controllers\Frontend\Auth\LoginController;
 use App\Http\Controllers\Frontend\ClientFormController;
+use App\Http\Controllers\PaymentApi\PaystackController;
 use App\Http\Controllers\Frontend\MakePaymentController;
 use App\Http\Controllers\Frontend\VerificationController;
 use App\Http\Controllers\Backend\AdminPasswordResetController;
@@ -16,7 +17,6 @@ use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 Route::get('/', [HomeController::class, '__invoke'])->name('home');
 
 Route::get('verification', [VerificationController::class, 'index'])->name('verification');
-
 
 Route::get('client-form', [ClientFormController::class, 'index'])->name('client-form.index');
 Route::post('client-form', [ClientFormController::class, 'store'])->name('client-form');
@@ -58,3 +58,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
 
 // Payment API Gateway
+Route::get('callback', [PaystackController::class, 'callback'])->name('callback');
+Route::get('success', [PaystackController::class, 'success'])->name('success');
+Route::get('cancel', [PaystackController::class, 'cancel'])->name('cancel');

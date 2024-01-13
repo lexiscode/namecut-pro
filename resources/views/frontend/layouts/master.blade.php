@@ -79,6 +79,10 @@
     <script src="{{ asset('frontend/js/custom-modal.js') }}"></script>
     <script src="{{ asset('frontend/js/custom-modal2.js') }}"></script>
 
+    <!-- paystack integration -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="{{ asset('payment-api/payment-form.js') }}"></script>
+
 </body>
 
 </html>

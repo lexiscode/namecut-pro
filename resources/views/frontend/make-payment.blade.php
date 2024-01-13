@@ -18,16 +18,20 @@
         <div class="containerr">
             <h1>Make Payment</h1>
             <br>
-            <div class="form">
-                <div class="form-group">
-                    <label for="">Enter your email</label>
+            <form id="paymentForm">
+                <div class="form">
+                    <div class="form-group">
+                        <p><b>Name Publication</b></p>
+                        <p>Price: NGN 2,000</p>
+                    </div>
+                    <div class="btn-groupp">
+                        <button type="submit" onclick="payWithPaystack()" class="btn btn-f">Pay Now!</button>
+                    </div>
+                    <br>
                 </div>
-                <div class="btn-groupp">
-                    <button type="submit" for="one" class="btn btn-f">Pay Now!</button>
-                </div>
-                <br>
-            </div>
+            </form>
         </div>
+
     </section>
     <br>
 
