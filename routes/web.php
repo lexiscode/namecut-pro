@@ -10,6 +10,8 @@ use App\Http\Controllers\Frontend\ClientFormController;
 use App\Http\Controllers\PaymentApi\PaystackController;
 use App\Http\Controllers\Frontend\MakePaymentController;
 use App\Http\Controllers\Frontend\VerificationController;
+use App\Http\Controllers\Frontend\PendingReceiptController;
+use App\Http\Controllers\Frontend\GeneratedReceiptController;
 use App\Http\Controllers\Backend\AdminPasswordResetController;
 use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 

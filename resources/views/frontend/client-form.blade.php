@@ -61,7 +61,7 @@
                     </p>
                     <div class="custom-btn-container">
                         <label onclick="closeCustomModal()" class="btn-secondary">Close</label>
-                        <button class="btn-warning" onclick="confirmCustomAction()" type="submit">Confirm</button>
+                        <button class="btn-warning" type="submit">Confirm</button>
                     </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@
         </div>
         <hr>
         <div style="text-align: center">
-          <button type="button" onclick="openCustomModal2()" class="btn btn-warning">Submit</button>
+          <a type="button" onclick="openCustomModal2()" class="btn btn-warning">Submit</a>
         </div>
       </div>
       <!-- Modal -->
@@ -115,7 +115,7 @@
           </p>
           <div class="custom-btn-container2">
             <button onclick="closeCustomModal2()" class="btn-secondary">Close</button>
-            <button onclick="confirmCustomAction2()" class="btn-warning" type="submit">Confirm</button>
+            <button class="btn-warning" type="submit">Confirm</button>
           </div>
         </div>
     </section>

@@ -8,14 +8,21 @@
 
 <!-- Specially below is for PC and Tablet devices -->
     <section class="slider_section_client_form long_section">
-        @if (session('success'))
-            <div style="margin: 0 auto; text-align: center; color: green">
-                <b>{{ session('success') }}</b>
-            </div>
-            <br>
-        @endif
 
         <div class="containerr">
+            <br>
+            @if (session('success'))
+                <div style="margin: 0 auto; text-align: center; color: green">
+                    <b>{{ session('success') }}</b>
+                </div>
+                <br>
+            @endif
+            @if (session('error'))
+                <div style="margin: 0 auto; text-align: center; color: red">
+                    <b>{{ session('error') }}</b>
+                </div>
+                <br>
+            @endif
             <h1>Make Payment</h1>
             <br>
             <form id="paymentForm">

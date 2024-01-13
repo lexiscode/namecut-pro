@@ -55,11 +55,12 @@ class PaystackController extends Controller
 
     public function success()
     {
-        return 'Payment successful';
+        return redirect('/')->with('status', 'Payment successful!');
     }
 
     public function cancel()
     {
-        return 'Payment cancelled';
+        return redirect('/make-payment')->with('error', 'Payment cancelled! Try again.');
     }
 }
+

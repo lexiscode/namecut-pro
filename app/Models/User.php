@@ -52,5 +52,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Payment::class);
     }
+
+    public function publish_receipt()
+    {
+        return $this->hasOne(PublishReceipt::class);
+    }
 }
 

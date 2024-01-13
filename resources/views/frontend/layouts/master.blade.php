@@ -35,10 +35,12 @@
     <!--custom CSS stylings-->
     <link rel="stylesheet" href="{{ asset('frontend/css/verification.css') }}" />
 
-    <!--custom CSS stylings-->
+    <!--custom CSS stylings in client-form -->
     <link rel="stylesheet" href="{{ asset('frontend/css/client-form.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/custom-modal.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/custom-modal2.css') }}" />
+    <!--custom CSS stylings in logged-in and paid client, homepage -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/custom-modal3.css') }}" />
 
     <!--custom isolated CSS stylings-->
     @yield('change-password-styles')
@@ -78,6 +80,7 @@
 
     <script src="{{ asset('frontend/js/custom-modal.js') }}"></script>
     <script src="{{ asset('frontend/js/custom-modal2.js') }}"></script>
+    <script src="{{ asset('frontend/js/custom-modal3.js') }}"></script>
 
     <!-- paystack integration -->
     <script src="https://js.paystack.co/v1/inline.js"></script>

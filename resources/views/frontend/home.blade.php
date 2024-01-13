@@ -82,9 +82,31 @@
                         @endguest
                         @auth
                             @if($clientForm)
-                                <a href="/make-payment" class="btn1">
-                                    <b>PAY NOW!</b>
-                                </a>
+                                @if($payment)
+                                    @if($publishReceipt)
+                                        <a href="/generated-receipt" class="btn1">
+                                            <b>GENERATE RECEIPT!</b>
+                                        </a>
+                                    @else
+                                        <a onclick="openCustomModal3()" class="btn1">
+                                            <b>GENERATE RECEIPT!</b>
+                                        </a>
+                                        <!-- Modal -->
+                                        <div id="customModal3" class="custom-modal3">
+                                            <span class="custom-close3" onclick="closeCustomModal3()">&times;</span>
+                                            <p>Your publication receipt is currently being processed. Please, kindly click the
+                                                generate button again in few hours time. Thank you!
+                                            </p>
+                                            <div class="custom-btn-container3">
+                                                <label onclick="closeCustomModal3()" class="btn-secondary">Close</label>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @else
+                                    <a href="/make-payment" class="btn1">
+                                        <b>PAY NOW!</b>
+                                    </a>
+                                @endif
                             @else
                                 <a href="/client-form" class="btn1">
                                     <b>UPLOAD DATA</b>
