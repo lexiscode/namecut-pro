@@ -13,6 +13,11 @@
                         <b>{{ session()->get('success') }}</b>
                     </p>
                 @endif
+                @if (session('status'))
+                    <p class='text-sm text-green-600 space-y-1' style="text-align:center">
+                        <b>{{ session('status') }}</b>
+                    </p>
+                @endif
               <div class="row">
                 <div class="col-md-5">
 
@@ -32,13 +37,19 @@
                         </a>
                         @endguest
                         @auth
-                        <a href="/client-form" class="btn1">
-                            <b>UPLOAD DATA</b>
-                        </a>
+                            @if($clientForm)
+                                <a href="#" class="btn1">
+                                    <b>PAY NOW!</b>
+                                </a>
+                            @else
+                                <a href="/client-form" class="btn1">
+                                    <b>UPLOAD DATA</b>
+                                </a>
+                            @endif
                         @endauth
-                      <a href="/verification" class="btn2">
-                        <b>VERIFY DATA</b>
-                      </a>
+                        <a href="/verification" class="btn2">
+                            <b>VERIFY DATA</b>
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -70,13 +81,19 @@
                         </a>
                         @endguest
                         @auth
-                        <a href="/client-form" class="btn1">
-                            <b>UPLOAD DATA</b>
-                        </a>
+                            @if($clientForm)
+                                <a href="#" class="btn1">
+                                    <b>PAY NOW!</b>
+                                </a>
+                            @else
+                                <a href="/client-form" class="btn1">
+                                    <b>UPLOAD DATA</b>
+                                </a>
+                            @endif
                         @endauth
-                      <a href="/verification" class="btn2">
-                        <b>VERIFY DATA</b>
-                      </a>
+                        <a href="/verification" class="btn2">
+                            <b>VERIFY DATA</b>
+                        </a>
                     </div>
                   </div>
                 </div>

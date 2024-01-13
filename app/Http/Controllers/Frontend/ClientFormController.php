@@ -12,6 +12,18 @@ class ClientFormController extends Controller
 {
     public function index()
     {
+        // Get the current authenticated user
+        $currentUser = Auth::user();
+
+        // Check if a ClientForm exists for the current user
+        $clientForm = ClientForm::where('user_id', $currentUser->id)->first();
+
+        // If ClientForm exists, redirect to the homepage
+        if ($clientForm) {
+            return redirect('/')->with('status', 'You have already submitted the form!');
+        }
+
+        // If ClientForm doesn't exist, proceed to the form submission page
         return view('frontend.client-form');
     }
 
@@ -21,7 +33,7 @@ class ClientFormController extends Controller
         $validatedData = $request->validated();
         //dd($validatedData);
 
-        // Handle affidavit file upload 
+        // Handle affidavit file upload
         if ($request->hasFile('affidavit')) {
             $affidavitImage = $request->file('affidavit');
             $affidavitImageName = time() . '_' . $affidavitImage->getClientOriginalName();
