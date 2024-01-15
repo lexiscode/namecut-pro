@@ -17,11 +17,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
-                @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Get-Receipt</a>
-                </li>
-                @endauth
                 </ul>
             </div>
             <div class="quote_btn-container">
