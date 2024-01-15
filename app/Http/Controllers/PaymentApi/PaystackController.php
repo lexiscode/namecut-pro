@@ -18,7 +18,7 @@ class PaystackController extends Controller
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.paystack.co/transaction/verify/:reference".$reference,
+            CURLOPT_URL => "https://api.paystack.co/transaction/verify/{$reference}",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
