@@ -10,10 +10,14 @@
                 </a>
             </li>
              <li class="nav-static-title">Main Components</li>
-            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-comment"></i><span class="nav-title">Portfolio</span></a> </li>
-            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-calendar"></i><span class="nav-title">Testimonial</span></a></li>
-            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Mail</span></a> </li>
-            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-book"></i><span class="nav-title">Blog</span></a> </li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-comment"></i><span class="nav-title">Admins</span></a> </li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-calendar"></i><span class="nav-title">Users</span></a></li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Client Forms</span></a> </li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-book"></i><span class="nav-title">Payments</span></a> </li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Publish Receipts</span></a> </li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-book"></i><span class="nav-title">Contacts</span></a> </li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Roles</span></a> </li>
+            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-book"></i><span class="nav-title">Permissions</span></a> </li>
 
             <li class="sidebar-banner p-4 bg-gradient text-center m-3 d-block rounded">
                 <h5 class="text-white mb-1">Lexis Admin</h5>
