@@ -29,7 +29,7 @@ class ClientProfileController extends Controller
 
     public function show(string $id)
     {
-
+        
         $client = User::with('client_form', 'payment', 'publish_receipt')->findOrFail($id);
 
         return view('backend.client.show', compact('client'));

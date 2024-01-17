@@ -52,8 +52,7 @@
                                 <br>
                                 <p><b>Username:</b> {{ $client->username }}</p> <br>
                                 <p><b>Email:</b> {{ $client->email }}</p> <br>
-                                <hr>
-                                <br>
+                        
                             </div>
                         </div>
                     </div>
@@ -76,29 +75,26 @@
                                 </div>
                             </div>
                             <div class="media-body ml-2">
-                                
-                                @if ($client->client_form && $client->client_form->count() > 0)
-                                    @foreach ($client->client_form as $client_form)
-                                        <div class="d-flex justify-content-between">
-                                            <h4 class="mb-0">Client Entry #ID: {{ $client_form->id }}</h4>
-                                            <span>{{ $client_form->created_at }}</span>
-                                        </div>
-                                        <br>
-                                        
-                                        <p><b>Full Name:</b> {{ $client_form->fullname }}</p> <br>
-                                        <p><b>Phone Number:</b> {{ $client_form->phone_no }}</p>
-                                        <p>Affidavit: 
-                                            <a href="{{ $client_form->affidavit }}" target="_blank">View Me!</a>
-                                        </p>
-                                        <p>Certificate:
-                                            <a href="{{ $client_form->certificate }}" target="_blank">View Me!</a>
-                                        </p>
-                                    @endforeach
-                                    </ul>
+
+                                @if ($client->client_form)
+                                    <div class="d-flex justify-content-between">
+                                        <h4 class="mb-0">Client Entry #ID: {{ $client->client_form->id }}</h4>
+                                        <span>{{ $client->client_form->created_at }}</span>
+                                    </div>
+                                    <br>
+
+                                    <p><b>Full Name:</b> {{ $client->client_form->fullname }}</p> <br>
+                                    <p><b>Phone Number:</b> {{ $client->client_form->phone_no }}</p> <br>
+                                    <p><b>Affidavit:</b>
+                                        <a href="{{ $client->client_form->affidavit }}" target="_blank">View Me!</a>
+                                    </p> <br>
+                                    <p><b>Certificate:</b>
+                                        <a href="{{ $client->client_form->certificate }}" target="_blank">View Me!</a>
+                                    </p>
                                 @else
                                     <p>No entries for this client.</p>
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>
@@ -121,26 +117,25 @@
                                 </div>
                             </div>
                             <div class="media-body ml-2">
-                                
-                                @if ($client->payment && $client->payment->count() > 0)
-                                    @foreach ($client->payment as $payment)
-                                        <div class="d-flex justify-content-between">
-                                            <h4 class="mb-0">Payment #ID: {{ $payment->payment_id }}</h4>
-                                            <span>{{ $payment->created_at }}</span>
-                                        </div>
-                                        <br>
-                                        
-                                        <p><b>Full Name:</b> {{ $payment->product_name }}</p> <br>
-                                        <p><b>Phone Number:</b> {{ $payment->amount }}</p> <br>
-                                        <p><b>Full Name:</b> {{ $payment->payment_method }}</p> <br>
-                                        <p><b>Phone Number:</b> {{ $payment->payment_status }}</p> <br>
-                                        <p><b>Phone Number:</b> {{ $payment->verification }}</p>
-                                    @endforeach
-                                    </ul>
+
+                                @if ($client->payment)
+
+                                    <div class="d-flex justify-content-between">
+                                        <h4 class="mb-0">Payment #ID: {{ $client->payment->payment_id }}</h4>
+                                        <span>{{ $client->payment->created_at }}</span>
+                                    </div>
+                                    <br>
+
+                                    <p><b>Product Name:</b> {{ $client->payment->product_name }}</p> <br>
+                                    <p><b>Amount:</b> {{ $client->payment->amount }}</p> <br>
+                                    <p><b>Payment Method:</b> {{ $client->payment->payment_method }}</p> <br>
+                                    <p><b>Payment Status:</b> {{ $client->payment->payment_status }}</p> <br>
+                                    <p><b>Verification:</b> {{ $client->payment->verification }}</p>
+
                                 @else
                                     <p>No payment made yet by this client.</p>
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>
@@ -163,25 +158,21 @@
                                 </div>
                             </div>
                             <div class="media-body ml-2">
-                                
-                                @if ($client->publish_receipt && $client->publish_receipt->count() > 0)
-                                    @foreach ($client->publish_receipt as $publish_receipt)
-                                        <div class="d-flex justify-content-between">
-                                            <h4 class="mb-0">Publish #ID: {{ $publish_receipt->id }}</h4>
-                                            <span>{{ $publish_receipt->created_at }}</span>
-                                        </div>
-                                        <br>
-                                        
-                                        <p><b>Published Receipt:</b> 
-                                            <a href="{{ $payment->product_name }}" target="_blank">View Me!</a>
-                                        </p> 
-                                       
-                                    @endforeach
-                                    </ul>
+
+                                @if ($client->publish_receipt)
+                                    <div class="d-flex justify-content-between">
+                                        <h4 class="mb-0">Publish #ID: {{ $client->publish_receipt->id }}</h4>
+                                        <span>{{ $client->publish_receipt->created_at }}</span>
+                                    </div>
+                                    <br>
+
+                                    <p><b>Published Receipt:</b>
+                                        <a href="{{ $client->publish_receipt->receipt_file }}" target="_blank">View Me!</a>
+                                    </p>
                                 @else
                                     <p>No receipt published yet for this client.</p>
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>
