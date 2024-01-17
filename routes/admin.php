@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\PaymentController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ClientFormController;
+use App\Http\Controllers\Backend\ClientProfileController;
 use App\Http\Controllers\Backend\PublishReceiptController;
 
 
@@ -19,8 +20,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
     Route::put('profile-password-update/{id}', [ProfileController::class, 'passwordUpdate'])->name('profile-password.update');
     Route::resource('profile', ProfileController::class);
 
+    // Clients Profile routes
+    Route::put('client-profile-password-update/{id}', [ClientProfileController::class, 'passwordUpdate'])->name('client-profile-password.update');
+    Route::resource('client-profile', ClientProfileController::class);
+
     // This route is for the ClientFormController
-    Route::resource('client-form', ClientFormController::class);
+    Route::resource('client-entry', ClientFormController::class);
 
     // This route is for the PaymentController
     Route::resource('payment', PaymentController::class);

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Backend;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminProfileUpdateRequest extends FormRequest
+class ClientProfileUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,13 +18,13 @@ class AdminProfileUpdateRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:255'],
-            'email' => ['required', 'max:255', 'email', 'unique:admins,email,'.Auth::guard('admin')->user()->id]
+            'username' => ['required', 'max:30', 'min:3'],
+            'email' => ['required', 'max:255', 'email']
         ];
     }
 
@@ -34,7 +34,6 @@ class AdminProfileUpdateRequest extends FormRequest
             'required' => 'The :attribute field is required.',
             'min' => 'The :attribute must be at least :min.',
             'max' => 'The :attribute field may not be greater than :max characters.',
-            'unique' => 'The :attribute has already been taken.',
         ];
     }
 }

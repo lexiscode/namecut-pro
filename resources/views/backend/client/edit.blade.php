@@ -12,7 +12,7 @@
                 <!-- begin page title -->
                 <div class="d-block d-sm-flex flex-nowrap align-items-center">
                     <div class="page-title mb-2 mb-sm-0">
-                        <h1>Create Profile</h1>
+                        <h1>Edit Client Profile</h1>
                     </div>
                     <div class="ml-auto d-flex align-items-center">
                         <nav>
@@ -21,7 +21,7 @@
                                     <a href="{{ route('admin.dashboard.index') }}"><i class="ti ti-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    Profile
+                                    Edit Client Profile
                                 </li>
 
                             </ol>
@@ -36,7 +36,7 @@
             <div class="col-xxl-9 m-b-30">
                 <div class="card card-statistics dating-contant h-100 mb-0">
                     <div class="card-header d-flex align-items-center justify-content-between"> <!---->
-                        <h4 class="card-title">Update your profile here</h4>
+                        <h4 class="card-title">Update your client profile here</h4>
                     </div>
 
                     <div class="col-xxl-4 m-b-30">
@@ -65,15 +65,15 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <form method="post" action="{{ route('admin.profile.update', $admin->id) }}">
+                                        <form method="post" action="{{ route('admin.client-profile.update', $user->id) }}">
                                             @csrf
                                             @method('PUT')
                                             <div class="row">
                                                 <div class="col">
-                                                    <input type="text" class="form-control" name="name" value="{{ $admin->name }}" placeholder="Enter new name">
+                                                    <input type="text" class="form-control" name="username" value="{{ $user->username }}" placeholder="Enter new name">
                                                 </div>
                                                 <div class="col">
-                                                    <input type="text" class="form-control" name="email" value="{{ $admin->email }}" placeholder="Enter new email">
+                                                    <input type="text" class="form-control" name="email" value="{{ $user->email }}" placeholder="Enter new email">
                                                 </div>
                                             </div>
                                             <br>
@@ -91,13 +91,9 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <form method="post" action="{{ route('admin.profile-password.update', $admin->id) }}">
+                                        <form method="post" action="{{ route('admin.client-profile-password.update', $user->id) }}">
                                             @csrf
                                             @method('PUT')
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">Old Password</label>
-                                                <input type="text" class="form-control" name="current_password" id="formGroupExampleInput" placeholder="Enter your old password">
-                                            </div>
                                             <div class="form-group">
                                                 <label for="formGroupExampleInput2">New Password</label>
                                                 <input type="text" class="form-control" name="password" id="formGroupExampleInput2" placeholder="Enter new password">

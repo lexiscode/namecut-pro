@@ -38,7 +38,7 @@
                     <div class="card-header d-flex align-items-center justify-content-between"> <!---->
                         <h4 class="card-title">Edit Client Entries Here</h4>
                         <div class="dropdown">
-                            <a class="btn btn-secondary" href="{{ route('admin.client-form.index') }}" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="{{ route('admin.client-entry.index') }}" aria-haspopup="true" aria-expanded="false">
                                 Go Back
                             </a>
                         </div>
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="{{ route('admin.client-form.update', $client_entry->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
+                                <form method="POST" action="{{ route('admin.client-entry.update', $client_entry->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                                     @csrf
                                     @method('PUT')
 

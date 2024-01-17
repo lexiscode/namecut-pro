@@ -65,7 +65,7 @@
                                 <div>
                                     <ul class="nav align-items-center">
                                         <li class="nav-item">
-                                            <a href="{{ route('admin.client-form.destroy', $client_entry->id) }}" class="btn btn-icon btn-outline-danger nav-link btn-round delete-item">
+                                            <a href="{{ route('admin.client-entry.destroy', $client_entry->id) }}" class="btn btn-icon btn-outline-danger nav-link btn-round delete-item">
                                                 <i class="ti ti-close" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i></a>
                                         </li>
                                     </ul>

@@ -19,9 +19,9 @@ class ProfileController extends Controller
     public function index()
     {
         // gets specific admin user login information
-        $user = Auth::guard('admin')->user();
+        $admin = Auth::guard('admin')->user();
 
-        return view('backend.profile.index', compact('user'));
+        return view('backend.profile.index', compact('admin'));
     }
 
 
@@ -31,10 +31,13 @@ class ProfileController extends Controller
     public function update(AdminProfileUpdateRequest $request, string $id)
     {
         $admin = Admin::findOrFail($id);
-        $admin->name = $request->name;
-        $admin->email = $request->email;
-        $admin->save();
 
+        // Validated rules for the form fields
+        $validatedData = $request->validated();
+
+        // Update the Clients attributes
+        $admin->update($validatedData);
+        
         toast('Updated Successfully!','success')->width('300');
 
         return redirect()->back();
@@ -51,7 +54,7 @@ class ProfileController extends Controller
         $admin->save();
 
         toast('Updated Successfully!','success')->width('300');
-        
+
         return redirect()->back();
     }
 }

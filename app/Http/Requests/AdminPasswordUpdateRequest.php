@@ -37,4 +37,12 @@ class AdminPasswordUpdateRequest extends FormRequest
             }
         });
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'The :attribute field is required.',
+            'min' => 'The :attribute must be at least :min.',
+        ];
+    }
 }
