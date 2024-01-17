@@ -42,7 +42,9 @@ class ClientFormController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $client_entry = ClientForm::findOrFail($id);
+
+        return view('backend.client-form.show', compact('client_entry'));
     }
 
     /**
@@ -113,7 +115,8 @@ class ClientFormController extends Controller
 
         $client_entry->delete();
 
-        toast('Deleted Successfully!','success')->width('300');
+        return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
+
     }
 }
 

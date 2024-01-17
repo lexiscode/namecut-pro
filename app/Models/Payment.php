@@ -11,7 +11,7 @@ class Payment extends Model
 
     protected $fillable= [
         'user_id', 'payment_id', 'product_name',
-        'amount', 'payment method',
+        'amount', 'payment_method',
         'payment_status', 'verification'
     ];
 

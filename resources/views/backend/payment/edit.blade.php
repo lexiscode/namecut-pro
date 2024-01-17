@@ -12,7 +12,7 @@
                 <!-- begin page title -->
                 <div class="d-block d-sm-flex flex-nowrap align-items-center">
                     <div class="page-title mb-2 mb-sm-0">
-                        <h1>Our Client Forms</h1>
+                        <h1>Our Client Payments</h1>
                     </div>
                     <div class="ml-auto d-flex align-items-center">
                         <nav>
@@ -21,9 +21,9 @@
                                     <a href="{{ route('admin.dashboard.index') }}"><i class="ti ti-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    Client Entries
+                                    Payment Details
                                 </li>
-                                <li class="breadcrumb-item active text-primary" aria-current="page">Edit Client Entry</li>
+                                <li class="breadcrumb-item active text-primary" aria-current="page">Edit Verification Status</li>
                             </ol>
                         </nav>
                     </div>
@@ -38,7 +38,7 @@
                     <div class="card-header d-flex align-items-center justify-content-between"> <!---->
                         <h4 class="card-title">Edit Client Entries Here</h4>
                         <div class="dropdown">
-                            <a class="btn btn-secondary" href="{{ route('admin.client-form.index') }}" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="{{ route('admin.payment.index') }}" aria-haspopup="true" aria-expanded="false">
                                 Go Back
                             </a>
                         </div>
@@ -61,27 +61,40 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="{{ route('admin.client-form.update', $client_entry->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
+                                <form method="POST" action="{{ route('admin.payment.update', $payment->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                                     @csrf
                                     @method('PUT')
 
-                                    <input type="hidden" name="user_id" value="{{ $client_entry->user_id }}">
+                                    <input type="hidden" name="user_id" value="{{ $payment->user_id }}">
+                                    <input type="hidden" name="payment_id" value="{{ $payment->payment_id }}">
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="fullname" value="{{ $client_entry->fullname }}" placeholder="Enter full name">
+                                        <input type="text" class="form-control" name="product_name" value="{{ $payment->product_name }}" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="phone_no" value="{{ $client_entry->phone_no }}" placeholder="Enter phone number">
+                                        <input type="number" class="form-control" name="amount" value="{{ $payment->amount }}" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <p>Affidavit Upload @if ($client_entry->affidavit) (1) @else (0) @endif</p>
-                                        <input type="file" class="form-control" name="affidavit" value="{{ $client_entry->affidavit }}">
+                                        <input type="text" class="form-control" name="payment_method" value="{{ $payment->payment_method }}" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <p>Certificate Upload @if ($client_entry->affidavit) (1) @else (0) @endif</p>
-                                        <input type="file" class="form-control" name="certificate" value="{{ $client_entry->certificate }}">
+                                        <input type="text" class="form-control" name="payment_status" value="{{ $payment->payment_status }}" disabled>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-primary btn-block">Submit Request</button>
+                                    <div class="form-group">
+                                        <label for="selectStatus">Verification:</label>
+                                        <select class="form-control" name="verification" id='selectStatus' required>
+                                            @foreach ([
+                                                'processing' => 'processing',
+                                                'verified' => 'verified',
+                                            ] as $optionValue => $optionLabel)
+                                                <option value="{{ $optionValue }}" {{ $payment->verification === $optionValue ? 'selected' : '' }}>
+                                                    {{ $optionLabel }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-outline-primary btn-block">Update</button>
                                 </form>
                             </div>
                         </div>

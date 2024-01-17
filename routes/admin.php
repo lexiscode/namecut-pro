@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\PaymentController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ClientFormController;
@@ -20,6 +21,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
 
     // This route is for the ClientFormController
     Route::resource('client-form', ClientFormController::class);
+
+    // This route is for the PaymentController
+    Route::resource('payment', PaymentController::class);
 
     // This route is for the PublishReceiptController
     Route::resource('publish-receipt', PublishReceiptController::class);
