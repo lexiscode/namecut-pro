@@ -27,6 +27,14 @@ class ClientProfileController extends Controller
         return view('backend.client.index', compact('clients'));
     }
 
+    public function show(string $id)
+    {
+
+        $client = User::with('client_form', 'payment', 'publish_receipt')->findOrFail($id);
+
+        return view('backend.client.show', compact('client'));
+    }
+
     public function edit(string $id)
     {
         // gets specific admin user login information
