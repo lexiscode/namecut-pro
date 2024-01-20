@@ -52,7 +52,6 @@
                                 <br>
                                 <p><b>Username:</b> {{ $client->username }}</p> <br>
                                 <p><b>Email:</b> {{ $client->email }}</p> <br>
-                        
                             </div>
                         </div>
                     </div>

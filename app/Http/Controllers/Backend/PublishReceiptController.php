@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\PublishReceipt;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\PublishReceiptRequest;
 
 class PublishReceiptController extends Controller
 {
@@ -12,7 +14,9 @@ class PublishReceiptController extends Controller
      */
     public function index()
     {
-        //
+        $publish_receipts = PublishReceipt::orderBy('created_at', 'desc')->simplePaginate(10);
+
+        return view('backend.publish-receipt.index', compact('publish_receipts'));
     }
 
     /**
@@ -20,15 +24,38 @@ class PublishReceiptController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.publish-receipt.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PublishReceiptRequest $request)
     {
-        //
+        // Validated rules for the form fields
+        $validatedData = $request->validated();
+
+        // Handle receipt file upload
+        if ($request->hasFile('receipt_file')) {
+            $receiptFile = $request->file('receipt_file');
+            $receiptFileName = time() . '_' . $receiptFile->getClientOriginalName();
+
+            // Move the uploaded receipt file to the public directory
+            $receiptFile->move(public_path('uploads/receipts'), $receiptFileName);
+
+            // Generate the URL for the receipt file
+            $receiptFileUrl = url('uploads/receipts/' . $receiptFileName);
+
+            // Save the affidavit image name to the database
+            $validatedData['receipt_file'] = $receiptFileUrl;
+        }
+
+        // Submit a new client-form using the validated data
+        PublishReceipt::create($validatedData);
+
+        toast('Receipt Generated Successfully!','success')->width('300');
+
+        return redirect()->route('admin.publish-receipt.index');
     }
 
     /**
@@ -36,7 +63,9 @@ class PublishReceiptController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $publish_receipt = PublishReceipt::findOrFail($id);
+
+        return view('backend.publish-receipt.show', compact('publish_receipt'));
     }
 
     /**
@@ -44,15 +73,43 @@ class PublishReceiptController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $publish_receipt = PublishReceipt::findOrFail($id);
+
+        return view('backend.publish-receipt.edit', compact('publish_receipt'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PublishReceiptRequest $request, string $id)
     {
-        //
+        // Find the Publish Receipt model by ID
+        $publish_receipt = PublishReceipt::findOrFail($id);
+
+        // Validated rules for the form fields
+        $validatedData = $request->validated();
+
+        // Handle receipt file upload
+        if ($request->hasFile('receipt_file')) {
+            $receiptFile = $request->file('receipt_file');
+            $receiptFileName = time() . '_' . $receiptFile->getClientOriginalName();
+
+            // Move the uploaded receipt file to the public directory
+            $receiptFile->move(public_path('uploads/receipts'), $receiptFileName);
+
+            // Generate the URL for the receipt file
+            $receiptFileUrl = url('uploads/receipts/' . $receiptFileName);
+
+            // Save the affidavit image name to the database
+            $validatedData['receipt_file'] = $receiptFileUrl;
+        }
+
+        // Update the Publish Receipt data attributes
+        $publish_receipt->update($validatedData);
+
+        toast('Updated Successfully!','success')->width('300');
+
+        return redirect()->route('admin.publish-receipt.index');
     }
 
     /**
@@ -60,6 +117,10 @@ class PublishReceiptController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $publish_receipt = PublishReceipt::findOrFail($id);
+
+        $publish_receipt->delete();
+
+        return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
     }
 }

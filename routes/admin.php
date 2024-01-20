@@ -34,3 +34,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
     Route::resource('publish-receipt', PublishReceiptController::class);
 
 });
+

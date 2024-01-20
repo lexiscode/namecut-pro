@@ -12,7 +12,7 @@
                 <!-- begin page title -->
                 <div class="d-block d-sm-flex flex-nowrap align-items-center">
                     <div class="page-title mb-2 mb-sm-0">
-                        <h1>Our Client Payments</h1>
+                        <h1>Our Publications</h1>
                     </div>
                     <div class="ml-auto d-flex align-items-center">
                         <nav>
@@ -21,9 +21,9 @@
                                     <a href="{{ route('admin.dashboard.index') }}"><i class="ti ti-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    Payment Details
+                                    Publications
                                 </li>
-                                <li class="breadcrumb-item active text-primary" aria-current="page">Edit Verification Status</li>
+                                <li class="breadcrumb-item active text-primary" aria-current="page">Create Publication</li>
                             </ol>
                         </nav>
                     </div>
@@ -36,9 +36,9 @@
             <div class="col-xxl-9 m-b-30">
                 <div class="card card-statistics dating-contant h-100 mb-0">
                     <div class="card-header d-flex align-items-center justify-content-between"> <!---->
-                        <h4 class="card-title">Edit Client Entries Here</h4>
+                        <h4 class="card-title">Create New Publication Here</h4>
                         <div class="dropdown">
-                            <a class="btn btn-secondary" href="{{ route('admin.payment.index') }}" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-secondary" href="{{ route('admin.publish-receipt.index') }}" aria-haspopup="true" aria-expanded="false">
                                 Go Back
                             </a>
                         </div>
@@ -61,37 +61,16 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="{{ route('admin.publish-receipt.update', $payment->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
+                                <form method="POST" action="{{ route('admin.publish-receipt.update', $publish_receipt->id) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                                     @csrf
                                     @method('PUT')
 
-                                    <input type="hidden" name="user_id" value="{{ $payment->user_id }}">
-                                    <input type="hidden" name="payment_id" value="{{ $payment->payment_id }}">
-
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="product_name" value="{{ $payment->product_name }}" disabled>
+                                        <input type="number" class="form-control" name="user_id" value="{{ $publish_receipt->user_id }}" placeholder='Enter the correct client #Id'>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="amount" value="{{ $payment->amount }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="payment_method" value="{{ $payment->payment_method }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="payment_status" value="{{ $payment->payment_status }}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="selectStatus">Verification:</label>
-                                        <select class="form-control" name="verification" id='selectStatus' required>
-                                            @foreach ([
-                                                'processing' => 'processing',
-                                                'verified' => 'verified',
-                                            ] as $optionValue => $optionLabel)
-                                                <option value="{{ $optionValue }}" {{ $payment->verification === $optionValue ? 'selected' : '' }}>
-                                                    {{ $optionLabel }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <p>Receipt Upload @if ($publish_receipt->receipt_file) (1) @else (0) @endif</p>
+                                        <input type="file" class="form-control" name="receipt_file" value="{{ $publish_receipt->receipt_file }}">
                                     </div>
 
                                     <button type="submit" class="btn btn-outline-primary btn-block">Update</button>

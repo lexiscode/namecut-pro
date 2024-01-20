@@ -78,7 +78,7 @@
                                         <input type="file" class="form-control" name="affidavit" value="{{ $client_entry->affidavit }}">
                                     </div>
                                     <div class="form-group">
-                                        <p>Certificate Upload @if ($client_entry->affidavit) (1) @else (0) @endif</p>
+                                        <p>Certificate Upload @if ($client_entry->certificate) (1) @else (0) @endif</p>
                                         <input type="file" class="form-control" name="certificate" value="{{ $client_entry->certificate }}">
                                     </div>
                                     <button type="submit" class="btn btn-outline-primary btn-block">Submit Request</button>
