@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\PaymentController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\DashboardController;
@@ -32,6 +33,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
 
     // This route is for the PublishReceiptController
     Route::resource('publish-receipt', PublishReceiptController::class);
+
+    // This route is for the ContactController
+    Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::get('contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 });
 
