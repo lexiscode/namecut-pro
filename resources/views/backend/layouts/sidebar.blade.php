@@ -17,7 +17,7 @@
             <li><a href="{{ route('admin.publish-receipt.index') }}" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Publish Receipts</span></a> </li>
             <li><a href="{{ route('admin.contact.index') }}" aria-expanded="false"><i class="nav-icon ti ti-book"></i><span class="nav-title">Contacts</span></a> </li>
             <li class="nav-static-title">Authorization</li>
-            <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Roles</span></a> </li>
+            <li><a href="{{ route('admin.role-user.index') }}" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Roles</span></a> </li>
             <li><a href="" aria-expanded="false"><i class="nav-icon ti ti-book"></i><span class="nav-title">Permissions</span></a> </li>
 
             <li class="sidebar-banner p-4 bg-gradient text-center m-3 d-block rounded">

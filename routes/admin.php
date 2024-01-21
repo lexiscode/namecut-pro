@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AdminsController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\PaymentController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\RoleUserController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ClientFormController;
 use App\Http\Controllers\Backend\ClientProfileController;
@@ -23,7 +24,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
     Route::resource('profile', ProfileController::class);
 
     // This route is for the AdminsController
-    Route::resource('admins', AdminsController::class); 
+    Route::resource('admins', AdminsController::class);
 
     // Clients Profile routes
     Route::put('client-profile-password-update/{id}', [ClientProfileController::class, 'passwordUpdate'])->name('client-profile-password.update');
@@ -41,6 +42,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
     // This route is for the ContactController
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
     Route::get('contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+    // Admin User Roles
+    Route::resource('role-user', RoleUserController::class);
 
 });
 
