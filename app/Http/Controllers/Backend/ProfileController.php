@@ -18,7 +18,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        // gets specific admin user login information
+        // gets specific admin user login information for the current user
         $admin = Auth::guard('admin')->user();
 
         return view('backend.profile.index', compact('admin'));
@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         // Update the Clients attributes
         $admin->update($validatedData);
-        
+
         toast('Updated Successfully!','success')->width('300');
 
         return redirect()->back();

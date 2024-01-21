@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Backend;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterStoreRequest extends FormRequest
+class AdminsUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,20 +24,17 @@ class RegisterStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string', 'alpha_dash', 'min:3', 'max:255', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed']
-        ]; 
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'max:255', 'email']
+        ];
     }
 
     public function messages()
     {
         return [
             'required' => 'The :attribute field is required.',
-            'max' => 'The :attribute field may not be greater than :max characters.',
-            'string' => 'The :attribute must be a string.',
             'min' => 'The :attribute must be at least :min.',
-            'email' => 'Invalid email format.',
+            'max' => 'The :attribute field may not be greater than :max characters.',
             'unique' => 'The :attribute has already been taken.',
         ];
     }
