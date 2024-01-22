@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ClientFormController;
 use App\Http\Controllers\Backend\ClientProfileController;
 use App\Http\Controllers\Backend\PublishReceiptController;
+use App\Http\Controllers\Backend\RolePermissionController;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], function(){
@@ -45,6 +46,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
 
     // Admin User Roles
     Route::resource('role-user', RoleUserController::class);
+
+    // This route is for Roles and Permission Controller
+    Route::get('role', [RolePermissionController::class, 'index'])->name('role.index');
+    Route::get('role/create', [RolePermissionController::class, 'create'])->name('role.create');
+    Route::post('role/store', [RolePermissionController::class, 'store'])->name('role.store');
+    Route::get('role/{role}/edit', [RolePermissionController::class, 'edit'])->name('role.edit');
+    Route::put('role/{role}', [RolePermissionController::class, 'update'])->name('role.update');
+    Route::delete('role/{role}', [RolePermissionController::class, 'destroy'])->name('role.destroy');
 
 });
 
