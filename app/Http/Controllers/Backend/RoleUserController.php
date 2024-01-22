@@ -57,7 +57,7 @@ class RoleUserController extends Controller
 
             toast('User & Role Created Successfully!','success')->width('350');
 
-            return redirect()->route('backend.role-users.index');
+            return redirect()->route('admin.role-user.index');
 
         } catch (\Throwable $th) {
             throw $th;

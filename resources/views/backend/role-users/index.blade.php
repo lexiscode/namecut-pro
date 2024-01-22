@@ -62,14 +62,25 @@
                                             <td>{{ $admin->id }}</td>
                                             <td>{{ $admin->name }}</td>
                                             <td>{{ $admin->email }}</td>
-                                            <td>{{ $admin->roles }}</td>
                                             <td>
-                                                <a href="{{ route('admin.role-user.edit', $admin->id) }}" class="mr-2">
-                                                    <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i>
-                                                </a>
-                                                <a href="{{ route('admin.role-user.destroy', $admin->id) }}" class="delete-item">
-                                                    <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i>
-                                                </a>
+                                                <span class="badge bg-primary text-light">
+                                                    {{ $admin->getRoleNames()->first() }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <!-- This if condition below, hides the edit and delete button for Super Admin
+                                                don't forget that we also have to block the url routes via controller methods of these
+                                                two functionalities, in case a user tries to access them via url-->
+                                                @if ($admin->getRoleNames()->first() != 'Super Admin')
+
+                                                    <a href="{{ route('admin.role-user.edit', $admin->id) }}" class="mr-2">
+                                                        <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"></i>
+                                                    </a>
+                                                    <a href="{{ route('admin.role-user.destroy', $admin->id) }}" class="delete-item">
+                                                        <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i>
+                                                    </a>
+
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach
