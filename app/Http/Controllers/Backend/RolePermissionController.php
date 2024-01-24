@@ -9,6 +9,15 @@ use Spatie\Permission\Models\Permission;
 
 class RolePermissionController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:access management index,admin')->only('index');
+        $this->middleware('role_or_permission:access management create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:access management edit,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:access management delete,admin')->only('destroy');
+    }
+
     public function index()
     {
         $roles = Role::simplePaginate(5);
@@ -20,8 +29,9 @@ class RolePermissionController extends Controller
     public function create()
     {
         $permissions = Permission::all()->groupBy('group_name');
+        $roles = Role::all();
 
-        return view('backend.roles.create', compact('permissions'));
+        return view('backend.roles.create', compact('permissions', 'roles'));
     }
 
 

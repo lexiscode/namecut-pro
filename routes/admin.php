@@ -55,5 +55,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
     Route::put('role/{role}', [RolePermissionController::class, 'update'])->name('role.update');
     Route::delete('role/{role}', [RolePermissionController::class, 'destroy'])->name('role.destroy');
 
+    // Page Not Found
+    Route::fallback(function(){
+        return view('404');
+    });
+
 });
 

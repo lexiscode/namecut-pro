@@ -4,18 +4,24 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
 
-use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\AdminProfileUpdateRequest;
-use App\Http\Requests\AdminPasswordUpdateRequest;
 use App\Http\Requests\Backend\ClientProfileUpdateRequest;
 use App\Http\Requests\Backend\ClientPasswordUpdateRequest;
 
 class ClientProfileController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:access management index,admin')->only('index');
+        $this->middleware('role_or_permission:access management show,admin')->only('show');
+        $this->middleware('role_or_permission:access management edit,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:access management delete,admin')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -29,7 +35,7 @@ class ClientProfileController extends Controller
 
     public function show(string $id)
     {
-        
+
         $client = User::with('client_form', 'payment', 'publish_receipt')->findOrFail($id);
 
         return view('backend.client.show', compact('client'));

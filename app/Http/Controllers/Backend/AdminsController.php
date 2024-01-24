@@ -10,6 +10,14 @@ use App\Http\Requests\Backend\AdminsRegisterStoreRequest;
 
 class AdminsController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:access management index,admin')->only('index');
+        $this->middleware('role_or_permission:access management create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:access management edit,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:access management delete,admin')->only('destroy');
+    }
 
     /**
      * Displays the list of admins

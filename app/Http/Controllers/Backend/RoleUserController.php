@@ -11,10 +11,19 @@ use App\Models\Admin;
 use Illuminate\Support\Facades\Mail;
 
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+
 
 class RoleUserController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:access management index,admin')->only('index');
+        $this->middleware('role_or_permission:access management create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:access management edit,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:access management delete,admin')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -58,6 +58,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
 });
 
+// Page Not Found
+Route::fallback(function(){
+    return view('404');
+});
+
 
 // Payment API Gateway
 Route::get('callback', [PaystackController::class, 'callback'])->name('callback');

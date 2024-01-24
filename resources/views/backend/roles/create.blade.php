@@ -65,10 +65,12 @@
                                     @csrf
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="role" name="role" placeholder="Enter name of role">
-                                        <div class="invalid-feedback">
-                                            Please fill in a role name
-                                        </div>
+                                        <label for="role">Select the Role:</label>
+                                        <select name="role" id="role" class="form-control">
+                                            @foreach ($roles as $role)
+                                                <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('role')
                                             <p class='text-danger'>{{ $message }}</p>
                                         @enderror
