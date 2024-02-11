@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Permission;
 
 class RolePermissionController extends Controller
 {
-    // permissions management
+    /* permissions management
     public function __construct()
     {
         $this->middleware('role_or_permission:access management index,admin')->only('index');
@@ -17,6 +17,7 @@ class RolePermissionController extends Controller
         $this->middleware('role_or_permission:access management edit,admin')->only('edit', 'update');
         $this->middleware('role_or_permission:access management delete,admin')->only('destroy');
     }
+    */
 
     public function index()
     {
@@ -61,7 +62,7 @@ class RolePermissionController extends Controller
         $rolePermissions = $role->permissions;
         $rolePermissions = $rolePermissions->pluck('name')->toArray();
 
-        return view('admin.roles.update', compact('permissions', 'role', 'rolePermissions'));
+        return view('backend.roles.edit', compact('permissions', 'role', 'rolePermissions'));
 
     }
 
