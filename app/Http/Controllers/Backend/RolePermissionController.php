@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Permission;
 
 class RolePermissionController extends Controller
 {
-    /* permissions management
+    /*permissions management
     public function __construct()
     {
         $this->middleware('role_or_permission:access management index,admin')->only('index');
