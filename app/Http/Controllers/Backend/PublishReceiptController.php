@@ -71,20 +71,16 @@ class PublishReceiptController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(PublishReceipt $publish_receipt)
     {
-        $publish_receipt = PublishReceipt::findOrFail($id);
-
         return view('backend.publish-receipt.show', compact('publish_receipt'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(PublishReceipt $publish_receipt)
     {
-        $publish_receipt = PublishReceipt::findOrFail($id);
-
         return view('backend.publish-receipt.edit', compact('publish_receipt'));
     }
 
@@ -125,12 +121,10 @@ class PublishReceiptController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(PublishReceipt $publish_receipt)
     {
-        $publish_receipt = PublishReceipt::findOrFail($id);
-
         $publish_receipt->delete();
 
-        return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
+        return response(['status' => 'success', 'message' => __('Deleted Successfully!'),]);
     }
 }
